@@ -1,0 +1,308 @@
+#include <iostream>
+#include <sys/stat.h>
+#include <fstream>
+#include <random>
+#include <windows.h>
+#include <stdlib.h>
+#include <stdio.h>
+#include <Shlobj.h>
+#include <Lmcons.h>
+
+using namespace std;
+
+int main()
+{
+    ofstream file;
+
+    int max = 26;
+
+    int e = 0;
+
+    srand(time(NULL));
+
+    int variables[11];
+
+    char chars[11];
+
+    char hex[11];
+
+    char* hexx[11];
+
+    cout << "FajnaFaktura Multi License Bypasser\nMade by CziterGaming\n"<<endl;
+    Sleep(500);
+    cout << "Initializing."; 
+    Sleep(100);
+    cout << "."; 
+    Sleep(100);
+    cout << "."<< endl;
+
+    cout << "Generating random characters.";
+    Sleep(1000);
+    cout << ".";
+    Sleep(1000);
+    cout << ".\n";
+    Sleep(500);
+    cout << "Generated characters:" << endl;
+    cout << "\nCharaster | HEX" << endl;
+
+    for (e; e < 11; e++)
+    {
+        variables[e] = rand() % max;
+        //cout << variables[e] << endl;
+        //b1 = rand() % max;
+
+        chars[e] = 'a' + variables[e];
+
+        //a1 = 'a' + b1;
+
+        //cout << a1;
+        //cout << variables[e] << endl;
+
+        sprintf_s(hex, "0x%02X", chars[e]);
+
+        Sleep(100);
+        hexx[e] = hex;
+        cout <<"     "<< chars[e] << "    :   " << hexx[e] <<  endl;
+
+        //cout << hexx[e] << endl;
+    }
+
+    /*char buffer[10];
+
+    for (int a = 0; a < 10; a++)
+    {
+        buffer[a] = 'b';
+    }
+
+    char bufHex[10];*/
+
+    /*for (int j = 0; j < 10; j++)
+    {
+        //sprintf_s(bufHex, "%X", buffer[j]);
+        sprintf(hex, "%X", chars[j]);
+        cout << hex << endl;
+    }*/
+
+    //cout << "appdata=" << path << endl;
+    //path += "\\Roaming\Drimar";
+    //cout << "path=" << path << endl;
+    //system("C:");
+    //system("cd %AppData%\Drimar\ser");
+    //system("cd %AppData%\Drimar\ff");
+
+    //multi.dri
+
+    TCHAR username[UNLEN + 1];
+    DWORD size = UNLEN + 1;
+
+    (GetUserName((TCHAR*)username, &size));
+
+    string syslet = getenv("SystemDrive");
+
+    string path = getenv("appdata");
+    path.append("\\Drimar\\ff\\multi.dri");
+    
+    cout << "\nSearching for file \"multi.dri\" in directory:"<<endl;
+
+    cout << syslet << "\nLUsers\n   L"; 
+    wcout << username; 
+    cout << "\n      LAppdata\n          LRoaming\n              LDrimar\n                   Lff\n" << endl;
+    cout << ".";
+    Sleep(1000);
+    cout << ".";
+    Sleep(1000);
+    cout << ".";
+    Sleep(1000);
+    
+    fstream binaryFile0(path.c_str(), ios::in | ios::out | ios::binary);
+
+    if (binaryFile0.fail())
+    {
+        cout << "File not found at: " << endl;
+        cout << syslet << "/Users/";
+        wcout << username;
+        cout << "/Roaming/Drimar/ff/\n" << endl;
+        cout << "Exitting...\n" << endl;
+        system("pause");
+        return 0;
+    }
+    else
+    {
+        cout << "File found. Implemeting random HEX values.\n\n" << endl;
+        Sleep(2000);
+    }
+
+    //fstream binaryFile0("E:/Desktop/Nowy folder (3)/test2.txt", ios::in | ios::out | ios::binary);
+
+    binaryFile0.seekp(0x13CC);
+    cout << "Looking for: 0x13CC and replacing value with: " << chars[0] << endl;
+    binaryFile0 << char(chars[0]);
+    Sleep(100);
+    
+    binaryFile0.seekp(0x13CD);
+    cout << "Looking for: 0x13CD and replacing value with: " << chars[1] << endl;
+    binaryFile0 << char(chars[1]);
+    Sleep(100);
+
+    binaryFile0.seekp(0x13CE);
+    cout << "Looking for: 0x13CE and replacing value with: " << chars[2] << endl;
+    binaryFile0 << char(chars[2]);
+    Sleep(100);
+
+    binaryFile0.seekp(0x13CF);
+    cout << "Looking for: 0x13CF and replacing value with: " << chars[3] << endl;
+    binaryFile0 << char(chars[3]);
+    Sleep(100);
+
+    binaryFile0.seekp(0x13D0);
+    cout << "Looking for: 0x13D0 and replacing value with: " << chars[4] << endl;
+    binaryFile0 << char(chars[4]);
+    Sleep(100);
+
+    binaryFile0.seekp(0x13D1);
+    cout << "Looking for: 0x13D1 and replacing value with: " << chars[5] << endl;
+    binaryFile0 << char(chars[5]);
+    Sleep(100);
+
+    binaryFile0.seekp(0x13D2);
+    cout << "Looking for: 0x13D2 and replacing value with: " << chars[6] << endl;
+    binaryFile0 << char(chars[6]);
+    Sleep(100);
+
+    binaryFile0.seekp(0x13D3);
+    cout << "Looking for: 0x13D3 and replacing value with: " << chars[7] << endl;
+    binaryFile0 << char(chars[7]);
+    Sleep(100);
+
+    binaryFile0.seekp(0x13D4);
+    cout << "Looking for: 0x13D4 and replacing value with: " << chars[7] << endl;
+    binaryFile0 << char(chars[8]);
+    Sleep(100);
+
+    binaryFile0.seekp(0x13D5);
+    cout << "Looking for: 0x13D5 and replacing value with: " << chars[8] << endl;
+    binaryFile0 << char(chars[9]);
+    Sleep(100);
+
+    binaryFile0.seekp(0x13D6);
+    cout << "Looking for: 0x13D6 and replacing value with: " << chars[10] << endl;
+    binaryFile0 << char(chars[10]);
+    Sleep(100);
+
+    cout << "Implemented." << endl;
+    Sleep(1000);
+
+    //ipetm.slx
+
+    system("cls");
+    
+    cout << "FajnaFaktura Multi License Bypasser\nMade by CziterGaming" << endl;
+    cout << "Searching for file \"ipetm.slx\" in directory:" << endl;
+
+    cout << syslet << "\nLUsers\n   L";
+    wcout << username;
+    cout << "\n      LAppdata\n          LRoaming\n              LDrimar\n                   Lff\n                     LDrimar\n                        Lctr\n" << endl;
+
+    cout << ".";
+    Sleep(1000);
+    cout << ".";
+    Sleep(1000);
+    cout << ".";
+    Sleep(1000);
+
+    string path2 = getenv("appdata");
+    path2.append("\\Drimar\\ff\\Drimar\\ctr\\ipetm.slx");
+
+    fstream binaryFile1(path2.c_str(), ios::in | ios::out | ios::binary);
+
+    if (binaryFile1.fail())
+    {
+        cout << "File not found at: " << endl;
+        cout << syslet << "/Users/";
+        wcout << username;
+        cout << "/Roaming/Drimar/ff/Drimar/ctr/\n" << endl;
+        cout << "Exitting...\n" << endl;
+        system("pause");
+        return 0;
+    }
+    else
+    {
+        cout << "File found. Implemeting random HEX values.\n\n" << endl;
+        Sleep(2000);
+    }
+
+    binaryFile1.seekp(0x000);
+    cout << "Looking for: 0x000 and replacing value with: " << chars[0] << endl;
+    binaryFile1 << char(chars[0]);
+    Sleep(100);
+
+    binaryFile1.seekp(0x001);
+    cout << "Looking for: 0x001 and replacing value with: " << chars[1] << endl;
+    binaryFile1 << char(chars[1]);
+    Sleep(100);
+
+    binaryFile1.seekp(0x002);
+    cout << "Looking for: 0x002 and replacing value with: " << chars[2] << endl;
+    binaryFile1 << char(chars[2]);
+    Sleep(100);
+
+    binaryFile1.seekp(0x003);
+    cout << "Looking for: 0x003 and replacing value with: " << chars[3] << endl;
+    binaryFile1 << char(chars[3]);
+    Sleep(100);
+
+    binaryFile1.seekp(0x004);
+    cout << "Looking for: 0x004 and replacing value with: " << chars[4] << endl;
+    binaryFile1 << char(chars[4]);
+    Sleep(100);
+
+    binaryFile1.seekp(0x005);
+    cout << "Looking for: 0x005 and replacing value with: " << chars[5] << endl;
+    binaryFile1 << char(chars[5]);
+    Sleep(100);
+
+    binaryFile1.seekp(0x006);
+    cout << "Looking for: 0x006 and replacing value with: " << chars[6] << endl;
+    binaryFile1 << char(chars[6]);
+    Sleep(100);
+
+    binaryFile1.seekp(0x007);
+    cout << "Looking for: 0x007 and replacing value with: " << chars[7] << endl;
+    binaryFile1 << char(chars[7]);
+    Sleep(100);
+
+    binaryFile1.seekp(0x008);
+    cout << "Looking for: 0x008 and replacing value with: " << chars[8] << endl;
+    binaryFile1 << char(chars[8]);
+    Sleep(100);
+
+    binaryFile1.seekp(0x009);
+    cout << "Looking for: 0x009 and replacing value with: " << chars[9] << endl;
+    binaryFile1 << char(chars[9]);
+    Sleep(100);
+
+    binaryFile1.seekp(0x00A);
+    cout << "Looking for: 0x00A and replacing value with: " << chars[10] << endl;
+    binaryFile1 << char(chars[10]);
+    Sleep(100);
+
+    cout << "Implemented." << endl;
+    Sleep(1000);
+
+    cout << "Launching: FajnaFaktura.exe\n";
+
+    fstream ffexe("FajnaFaktura.exe");
+
+    if (ffexe.fail())
+    {
+        cout << "FajnaFaktura.exe not found. Put this program into it's directory.\n";
+    }
+    else
+    {
+        system("FajnaFaktura.exe");
+
+        cout << "Program exit detected.\n";
+    }
+
+    system("pause");
+}
