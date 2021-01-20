@@ -48,49 +48,15 @@ int main()
     for (e; e < 11; e++)
     {
         variables[e] = rand() % max;
-        //cout << variables[e] << endl;
-        //b1 = rand() % max;
 
         chars[e] = 'a' + variables[e];
-
-        //a1 = 'a' + b1;
-
-        //cout << a1;
-        //cout << variables[e] << endl;
 
         sprintf_s(hex, "0x%02X", chars[e]);
 
         Sleep(100);
         hexx[e] = hex;
         cout <<"     "<< chars[e] << "    :   " << hexx[e] <<  endl;
-
-        //cout << hexx[e] << endl;
     }
-
-    /*char buffer[10];
-
-    for (int a = 0; a < 10; a++)
-    {
-        buffer[a] = 'b';
-    }
-
-    char bufHex[10];*/
-
-    /*for (int j = 0; j < 10; j++)
-    {
-        //sprintf_s(bufHex, "%X", buffer[j]);
-        sprintf(hex, "%X", chars[j]);
-        cout << hex << endl;
-    }*/
-
-    //cout << "appdata=" << path << endl;
-    //path += "\\Roaming\Drimar";
-    //cout << "path=" << path << endl;
-    //system("C:");
-    //system("cd %AppData%\Drimar\ser");
-    //system("cd %AppData%\Drimar\ff");
-
-    //multi.dri
 
     TCHAR username[UNLEN + 1];
     DWORD size = UNLEN + 1;
@@ -103,6 +69,8 @@ int main()
     path.append("\\Drimar\\ff\\multi.dri");
     
     cout << "\nSearching for file \"multi.dri\" in directory:"<<endl;
+
+    //multi.dri
 
     cout << syslet << "\nLUsers\n   L"; 
     wcout << username; 
@@ -131,8 +99,6 @@ int main()
         cout << "File found. Implemeting random HEX values.\n\n" << endl;
         Sleep(2000);
     }
-
-    //fstream binaryFile0("E:/Desktop/Nowy folder (3)/test2.txt", ios::in | ios::out | ios::binary);
 
     binaryFile0.seekp(0x13CC);
     cout << "Looking for: 0x13CC and replacing value with: " << chars[0] << endl;
