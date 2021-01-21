@@ -1,2 +1,2 @@
 # fajnafaktura-bypasser
-i like ya cut g
+Program that bypass FajnaFaktura license checker and overwrite it's values with random characters.
