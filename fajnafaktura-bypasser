@@ -36,6 +36,26 @@ int main()
     Sleep(100);
     cout << "."<< endl;
 
+    fstream multidri("multi.dri");
+
+    if (multidri.fail())
+    {
+        cout << "File \"multi.dri\" not found. Make sure to copy it into the same directory as this program." << endl;
+        cout << "Exitting..." << endl;
+        system("pause");
+        return 0;
+    }
+    
+    fstream ipetmslx("ipetm.slx");
+
+    if (ipetmslx.fail())
+    {
+        cout << "File \"ipetm.slx\" not found. Make sure to copy it into the same directory as this program." << endl;
+        cout << "Exitting..." << endl;
+        system("pause");
+        return 0;
+    }
+
     cout << "Generating random characters.";
     Sleep(1000);
     cout << ".";
@@ -56,7 +76,10 @@ int main()
         Sleep(100);
         hexx[e] = hex;
         cout <<"     "<< chars[e] << "    :   " << hexx[e] <<  endl;
+
     }
+
+    //multi.dri
 
     TCHAR username[UNLEN + 1];
     DWORD size = UNLEN + 1;
@@ -69,8 +92,6 @@ int main()
     path.append("\\Drimar\\ff\\multi.dri");
     
     cout << "\nSearching for file \"multi.dri\" in directory:"<<endl;
-
-    //multi.dri
 
     cout << syslet << "\nLUsers\n   L"; 
     wcout << username; 
@@ -90,9 +111,13 @@ int main()
         cout << syslet << "/Users/";
         wcout << username;
         cout << "/Roaming/Drimar/ff/\n" << endl;
-        cout << "Exitting...\n" << endl;
-        system("pause");
-        return 0;
+        cout << "Copying multi.dri to directory above." << endl;
+        std::ifstream  src("multi.dri", std::ios::binary);
+        std::ofstream  dst(path.c_str(), std::ios::binary);
+        dst << src.rdbuf();
+        cout << "Restarting..." << endl;
+        system("cls");
+        main();
     }
     else
     {
@@ -187,9 +212,13 @@ int main()
         cout << syslet << "/Users/";
         wcout << username;
         cout << "/Roaming/Drimar/ff/Drimar/ctr/\n" << endl;
-        cout << "Exitting...\n" << endl;
-        system("pause");
-        return 0;
+        cout << "Copying ipetm.slx to directory above." << endl;
+        std::ifstream  src("ipetm.slx", std::ios::binary);
+        std::ofstream  dst(path2.c_str(), std::ios::binary);
+        dst << src.rdbuf();
+        cout << "Restarting..." << endl;
+        system("cls");
+        main();
     }
     else
     {
