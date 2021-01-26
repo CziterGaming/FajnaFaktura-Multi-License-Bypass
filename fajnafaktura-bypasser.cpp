@@ -134,7 +134,7 @@ int main()
         }
         else if (info.st_mode & S_IFDIR)
         {
-            cout << "%s is a directory\n";
+            cout << "File exist. Error.";
         }
         else 
         {
